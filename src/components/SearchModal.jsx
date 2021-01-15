@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components';
+
+import SearchInput from './SearchInput';
 import { closeSearchModal } from '../redux/actions';
 
 
@@ -30,6 +32,7 @@ const Body = styled.div`
   position: relative;
   z-index: 1;
 
+  padding: 10px;
   width: 90%;
   height: 90%;
   background-color: white;
@@ -41,7 +44,9 @@ const SearchModal = () => {
 
   return (
     <Container data-testid="SearchModal-container">
-      <Body data-testid="SearchModal-body"/>
+      <Body data-testid="SearchModal-body">
+        <SearchInput />
+      </Body>
       <Background
         data-testid="SearchModal-background"
         onClick={() => dispatch(closeSearchModal())}
