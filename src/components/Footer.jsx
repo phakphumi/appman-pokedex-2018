@@ -27,6 +27,10 @@ const AddButtonStyled = styled.button`
   border-radius: 80px;
   border-color: transparent;
   font-size: 100px;
+
+  &:focus {
+    outline: unset;
+  }
 `
 
 const Footer = () => {
