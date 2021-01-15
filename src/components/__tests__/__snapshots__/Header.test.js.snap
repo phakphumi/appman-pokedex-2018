@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should contain text content "My Pokedex" 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ bAYWQc"
+    data-testid="Header-container"
+  >
+    My Pokedex
+  </div>
+</div>
+`;
