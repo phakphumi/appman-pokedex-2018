@@ -5,7 +5,8 @@ import { closeSearchModal } from '../redux/actions';
 
 
 const Container = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
 
   background-color: white;
   opacity: 0.7;
