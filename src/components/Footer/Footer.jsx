@@ -1,8 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import { openAddModal } from '../../redux/actions';
+import { COLORS } from '../../styles/colors';
+
 const Container = styled.div`
-  background-color: #eb4d4b;
+  background-color: ${COLORS.Fire};
   position: absolute;
   display: flex;
   justify-content: center;
@@ -14,7 +18,7 @@ const Container = styled.div`
 
 const AddButtonStyled = styled.button`
   color: white;
-  background-color: #eb4d4b;
+  background-color: ${COLORS.Fire};
   position: absolute;
   bottom: 0;
   
@@ -25,10 +29,13 @@ const AddButtonStyled = styled.button`
   font-size: 100px;
 `
 
-const Footer = () => (
+const Footer = () => {
+  const dispatch = useDispatch();
+
+  return (
   <Container data-testid="footer-container">
-    <AddButtonStyled data-testid="footer-addButton">+</AddButtonStyled>
+    <AddButtonStyled data-testid="footer-addButton" onClick={() => dispatch(openAddModal())}>+</AddButtonStyled>
   </Container>
-)
+)}
 
 export default Footer;

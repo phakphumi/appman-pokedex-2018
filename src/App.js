@@ -1,29 +1,17 @@
-import React, { Component } from 'react'
-import HomePage from './pages/HomePage';
-import './App.css'
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 
-const COLORS = {
-  Psychic: "#f8a5c2",
-  Fighting: "#f0932b",
-  Fairy: "#c44569",
-  Normal: "#f6e58d",
-  Grass: "#badc58",
-  Metal: "#95afc0",
-  Water: "#3dc1d3",
-  Lightning: "#f9ca24",
-  Darkness: "#574b90",
-  Colorless: "#FFF",
-  Fire: "#eb4d4b"
-}
+import HomePage from './pages/HomePage';
+import createStore from './redux/createStore';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <HomePage />
-      </div>
+      <Provider store={createStore()}>
+        <HomePage />
+      </Provider>
     )
   }
 }
 
-export default App
+export default App;
