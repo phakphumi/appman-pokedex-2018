@@ -1,8 +1,8 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
-import { openAddModal } from '../../../redux/actions';
-import { COLORS } from '../../../styles/colors';
+import { openAddModal } from '../../redux/actions';
+import { COLORS } from '../../styles/colors';
 import Footer from '../Footer';
 
 import '@testing-library/jest-dom';
@@ -12,7 +12,7 @@ const mockDispatchFunc = jest.fn();
 jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatchFunc,
 }));
-jest.mock('../../../redux/actions', () => ({
+jest.mock('../../redux/actions', () => ({
   openAddModal: jest.fn(),
 }));
 

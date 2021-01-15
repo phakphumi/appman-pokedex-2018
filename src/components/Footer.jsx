@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { openAddModal } from '../../redux/actions';
-import { COLORS } from '../../styles/colors';
+import { openAddModal } from '../redux/actions';
+import { COLORS } from '../styles/colors';
 
 const Container = styled.div`
   background-color: ${COLORS.Fire};
