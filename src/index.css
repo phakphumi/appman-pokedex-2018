@@ -5,6 +5,10 @@ body {
   font-family: 'Atma', cursive;
 }
 
+button {
+  font-family: 'Atma', cursive;
+}
+
 #root {
   width: 1024px;
   height: 768px;
