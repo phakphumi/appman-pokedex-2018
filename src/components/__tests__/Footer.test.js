@@ -31,7 +31,7 @@ describe('<Footer />', () => {
     expect(queryByTestId('footer-addButton')).toHaveStyle(`background-color: ${COLORS.Fire};`);
   })
 
-  it('should call dispatch with the return value from openSearchModal as args', () => {
+  it('should call dispatch with the return value from openSearchModal as args when AddButton is clicked', () => {
     const actionValue = { type: 'string' };
     openSearchModal.mockReturnValue(actionValue);
 
