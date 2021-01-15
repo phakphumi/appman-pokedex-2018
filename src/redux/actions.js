@@ -1,5 +1,9 @@
-import { OPEN_ADD_MODAL } from './actionTypes';
+import { CLOSE_SEARCH_MODAL, OPEN_SEARCH_MODAL } from './actionTypes';
 
-export const openAddModal = () => ({
-  type: OPEN_ADD_MODAL,
+export const openSearchModal = () => ({
+  type: OPEN_SEARCH_MODAL,
+})
+
+export const closeSearchModal = () => ({
+  type: CLOSE_SEARCH_MODAL,
 })

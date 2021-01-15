@@ -1,4 +1,4 @@
-import { OPEN_ADD_MODAL } from './actionTypes';
+import { CLOSE_SEARCH_MODAL, OPEN_SEARCH_MODAL } from './actionTypes';
 
 const initialState = {
   deck: [],
@@ -7,11 +7,18 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case OPEN_ADD_MODAL:
+    case CLOSE_SEARCH_MODAL: {
+      return {
+        ...state,
+        showSearchModal: false,
+      }
+    }
+    case OPEN_SEARCH_MODAL: {
       return {
         ...state,
         showSearchModal: true,
       }
+    }
 
     default: {
       return state;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
-import { openAddModal } from '../../redux/actions';
+import { openSearchModal } from '../../redux/actions';
 import { COLORS } from '../../styles/colors';
 import Footer from '../Footer';
 
@@ -13,7 +13,7 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatchFunc,
 }));
 jest.mock('../../redux/actions', () => ({
-  openAddModal: jest.fn(),
+  openSearchModal: jest.fn(),
 }));
 
 afterEach(cleanup);
@@ -31,9 +31,9 @@ describe('<Footer />', () => {
     expect(queryByTestId('footer-addButton')).toHaveStyle(`background-color: ${COLORS.Fire};`);
   })
 
-  it('should call dispatch with the return value from openAddModal as args', () => {
+  it('should call dispatch with the return value from openSearchModal as args', () => {
     const actionValue = { type: 'string' };
-    openAddModal.mockReturnValue(actionValue);
+    openSearchModal.mockReturnValue(actionValue);
 
     const { queryByTestId } = render(<Footer />);
 

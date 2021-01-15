@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { openAddModal } from '../redux/actions';
+import { openSearchModal } from '../redux/actions';
 import { COLORS } from '../styles/colors';
 
 const Container = styled.div`
@@ -34,7 +34,7 @@ const Footer = () => {
 
   return (
   <Container data-testid="footer-container">
-    <AddButtonStyled data-testid="footer-addButton" onClick={() => dispatch(openAddModal())}>+</AddButtonStyled>
+    <AddButtonStyled data-testid="footer-addButton" onClick={() => dispatch(openSearchModal())}>+</AddButtonStyled>
   </Container>
 )}
 

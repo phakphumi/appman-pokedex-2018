@@ -1,12 +1,12 @@
-import { openAddModal } from '../actions';
-import { OPEN_ADD_MODAL } from '../actionTypes'
+import { openSearchModal } from '../actions';
+import { OPEN_SEARCH_MODAL } from '../actionTypes'
 
 describe('actions', () => {
-  describe('openAddModal', () => {
-    it('should return type equal to OPEN_ADD_MODAL', () => {
-      const result = openAddModal();
+  describe('openSearchModal', () => {
+    it('should return type equal to OPEN_SEARCH_MODAL', () => {
+      const result = openSearchModal();
 
-      expect(result.type).toEqual(OPEN_ADD_MODAL);
+      expect(result.type).toEqual(OPEN_SEARCH_MODAL);
     });
   });
 });
