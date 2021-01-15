@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
         ...state,
         showSearchModal: true,
       }
-  
+
     default: {
       return state;
     }
