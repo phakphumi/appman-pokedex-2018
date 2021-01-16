@@ -11,6 +11,8 @@ const mockDispatchFunc = jest.fn();
 jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatchFunc,
 }));
+jest.mock('../SearchInput', () => () => <div data-testid="SearchInput-input" />);
+jest.mock('../SearchResult', () => () => <div data-testid="SearchResult-container" />);
 jest.mock('../../redux/actions', () => ({
   closeSearchModal: jest.fn(),
 }));
@@ -43,5 +45,12 @@ describe('<SearchModal />', () => {
       background-color: white;
       z-index: 1;
     `);
+  })
+
+  it('should contain SearchInput and SearchResult inside Body', () => {
+    const { queryByTestId } = render(<SearchModal />);
+
+    expect(queryByTestId('SearchInput-input')).toBeInTheDocument();
+    expect(queryByTestId('SearchResult-container')).toBeInTheDocument();
   })
 });

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components';
 
 import SearchInput from './SearchInput';
+import SearchResult from './SearchResult';
 import { closeSearchModal } from '../redux/actions';
 
 
@@ -31,6 +32,8 @@ const Background = styled.div`
 const Body = styled.div`
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 
   padding: 10px;
   width: 90%;
@@ -46,6 +49,7 @@ const SearchModal = React.memo(() => {
     <Container data-testid="SearchModal-container">
       <Body data-testid="SearchModal-body">
         <SearchInput />
+        <SearchResult />
       </Body>
       <Background
         data-testid="SearchModal-background"
