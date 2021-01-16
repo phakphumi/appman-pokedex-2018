@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { searchCard } from '../apis/card';
 import { COLORS } from '../styles/colors';
 import { useDebounce } from '../utils/useDebounce';
 
@@ -21,6 +22,9 @@ const SearchInput = () => {
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
   useEffect(() => {
+    (async () => {
+      const cards = await searchCard(debouncedSearchTerm);
+    })()
   }, [debouncedSearchTerm]);
   return (
     <InputStyled placeholder="Find pokemon" onChange={(event) => setSearchTerm(event?.target?.value)} />
