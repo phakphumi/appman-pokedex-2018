@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { searchCard } from '../apis/card';
+import { setSearchResults } from '../redux/actions';
 import { COLORS } from '../styles/colors';
 import { useDebounce } from '../utils/useDebounce';
 
@@ -18,16 +20,24 @@ const InputStyled = styled.input`
 `;
 
 const SearchInput = () => {
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState();
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
   useEffect(() => {
     (async () => {
       const cards = await searchCard(debouncedSearchTerm);
+
+      dispatch(setSearchResults(cards));
     })()
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, dispatch]);
+
   return (
-    <InputStyled placeholder="Find pokemon" onChange={(event) => setSearchTerm(event?.target?.value)} />
+    <InputStyled
+      data-testid="SearchInput-input"
+      placeholder="Find pokemon"
+      onChange={(event) => setSearchTerm(event?.target?.value)}
+    />
   );
 };
 
