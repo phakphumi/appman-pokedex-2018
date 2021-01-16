@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../styles/colors'
+import { COLORS } from '../styles/colors';
+import { useDebounce } from '../utils/useDebounce';
 
 const InputStyled = styled.input`
   background: white url(/../search.png) right no-repeat;
@@ -16,8 +17,13 @@ const InputStyled = styled.input`
 `;
 
 const SearchInput = () => {
+  const [searchTerm, setSearchTerm] = useState();
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+
+  useEffect(() => {
+  }, [debouncedSearchTerm]);
   return (
-    <InputStyled placeholder="Find pokemon" />
+    <InputStyled placeholder="Find pokemon" onChange={(event) => setSearchTerm(event?.target?.value)} />
   );
 };
 
