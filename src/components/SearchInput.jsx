@@ -19,7 +19,7 @@ const InputStyled = styled.input`
   border-color: ${COLORS.Metal};
 `;
 
-const SearchInput = () => {
+const SearchInput = React.memo(() => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState();
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
@@ -39,6 +39,6 @@ const SearchInput = () => {
       onChange={(event) => setSearchTerm(event?.target?.value)}
     />
   );
-};
+});
 
 export default SearchInput;

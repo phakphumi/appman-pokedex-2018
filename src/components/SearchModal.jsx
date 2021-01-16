@@ -39,7 +39,7 @@ const Body = styled.div`
   border-radius: 5px;
 `
 
-const SearchModal = () => {
+const SearchModal = React.memo(() => {
   const dispatch = useDispatch();
 
   return (
@@ -53,6 +53,6 @@ const SearchModal = () => {
       />
     </Container>
   );
-};
+});
 
 export default SearchModal;

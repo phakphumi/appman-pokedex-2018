@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import SearchModal from '../components/SearchModal';
 import { selectShowSearchModal } from '../redux/selectors';
 
-const HomePage = () => {
+const HomePage = React.memo(() => {
   const showSearchModal = useSelector(selectShowSearchModal);
 
   return (
@@ -16,6 +16,6 @@ const HomePage = () => {
       {showSearchModal && <SearchModal />}
     </>
   );
-};
+});
 
 export default HomePage;

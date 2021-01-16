@@ -13,6 +13,8 @@ const Container = styled.div`
   font-weight: bold;
 `;
 
-const Header = () => (<Container data-testid="Header-container">My Pokedex</Container>);
+const Header = React.memo(() => (
+  <Container data-testid="Header-container">My Pokedex</Container>
+));
 
 export default Header;

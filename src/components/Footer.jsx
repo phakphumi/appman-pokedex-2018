@@ -33,13 +33,13 @@ const AddButtonStyled = styled.button`
   }
 `
 
-const Footer = () => {
+const Footer = React.memo(() => {
   const dispatch = useDispatch();
 
   return (
   <Container data-testid="footer-container">
     <AddButtonStyled data-testid="footer-addButton" onClick={() => dispatch(openSearchModal())}>+</AddButtonStyled>
   </Container>
-)}
+)});
 
 export default Footer;
