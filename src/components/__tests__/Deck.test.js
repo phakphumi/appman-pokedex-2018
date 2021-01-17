@@ -10,7 +10,7 @@ jest.mock('react-redux', () => ({
   useSelector: (selector) => selector(),
 }));
 
-jest.mock('../SearchItem', () => () => <div data-testid="SearchItem-container" />);
+jest.mock('../CardItem', () => () => <div data-testid="CardItem-container" />);
 jest.mock('../../redux/selectors', () => ({
   selectDeck: jest.fn(),
 }))
@@ -18,7 +18,7 @@ jest.mock('../../redux/selectors', () => ({
 afterEach(cleanup);
 
 describe('<Deck />', () => {
-  it('should render SearchItem with excat same number with deck length', () => {
+  it('should render CardItem with excat same number with deck length', () => {
     const cards = [
       { id: 'a1' },
       { id: 'a2' },
@@ -28,6 +28,6 @@ describe('<Deck />', () => {
 
     const { queryAllByTestId } = render(<Deck />);
 
-    expect(queryAllByTestId('SearchItem-container')).toHaveLength(cards.length);
+    expect(queryAllByTestId('CardItem-container')).toHaveLength(cards.length);
   })
 });

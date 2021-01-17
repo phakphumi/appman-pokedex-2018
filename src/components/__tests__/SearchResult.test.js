@@ -12,13 +12,13 @@ jest.mock('react-redux', () => ({
   useSelector: (selector) => selector(),
 }));
 
-jest.mock('../SearchItem', () => () => <div data-testid="SearchItem-container" />);
+jest.mock('../CardItem', () => () => <div data-testid="CardItem-container" />);
 jest.mock('../../redux/selectors', () => ({
   selectSearchResults: jest.fn(),
 }))
 
 describe('<SearchResult />', () => {
-  it('should render SearchItem with excat same number with searchResult length', () => {
+  it('should render CardItem with excat same number with searchResult length', () => {
     const cards = [
       { id: 'a1' },
       { id: 'a2' },
@@ -28,6 +28,6 @@ describe('<SearchResult />', () => {
 
     const { queryAllByTestId } = render(<SearchResult />);
 
-    expect(queryAllByTestId('SearchItem-container')).toHaveLength(cards.length);
+    expect(queryAllByTestId('CardItem-container')).toHaveLength(cards.length);
   })
 });
