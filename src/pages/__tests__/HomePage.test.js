@@ -22,19 +22,19 @@ afterEach(cleanup);
 
 describe('<HomePage />', () => {
   it('should contain Deck Section', () => {
-    const { container, queryByTestId} = render(<HomePage />);
+    const { queryByTestId} = render(<HomePage />);
 
     expect(queryByTestId('Deck-container')).toBeInTheDocument();
   });
 
   it('should contain Header Section', () => {
-    const { container, queryByTestId} = render(<HomePage />);
+    const { queryByTestId} = render(<HomePage />);
 
     expect(queryByTestId('Header-container')).toBeInTheDocument();
   });
 
   it('should contain Footer Section', () => {
-    const { container, queryByTestId} = render(<HomePage />);
+    const { queryByTestId} = render(<HomePage />);
 
     expect(queryByTestId('Footer-container')).toBeInTheDocument();
   });
@@ -42,7 +42,7 @@ describe('<HomePage />', () => {
   it('should contain SearchModal if current state of showSearchModal is true', () => {
     selectShowSearchModal.mockReturnValue(true);
 
-    const { container, queryByTestId} = render(<HomePage />);
+    const { queryByTestId} = render(<HomePage />);
 
     expect(queryByTestId('SearchModal-container')).toBeInTheDocument();
   });
@@ -50,7 +50,7 @@ describe('<HomePage />', () => {
   it('should not contain SearchModal if current state of showSearchModal is false', () => {
     selectShowSearchModal.mockReturnValue(false);
 
-    const { container, queryByTestId} = render(<HomePage />);
+    const { queryByTestId} = render(<HomePage />);
 
     expect(queryByTestId('SearchModal-container')).not.toBeInTheDocument();
   });

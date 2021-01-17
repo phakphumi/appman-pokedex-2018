@@ -20,12 +20,12 @@ afterEach(cleanup);
 
 describe('<Footer />', () => {
   it('should contains AddButton component', () => {
-    const { container, queryByTestId } = render(<Footer />);
+    const { queryByTestId } = render(<Footer />);
 
     expect(queryByTestId('footer-addButton')).toBeInTheDocument();
   })
   it('should use Fire as background-color both footer and addButton', () => {
-    const { container, queryByTestId } = render(<Footer />);
+    const { queryByTestId } = render(<Footer />);
 
     expect(queryByTestId('footer-container')).toHaveStyle(`background-color: ${COLORS.Fire};`);
     expect(queryByTestId('footer-addButton')).toHaveStyle(`background-color: ${COLORS.Fire};`);
