@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 
 import SearchResult from '../SearchResult';
 import { selectSearchResults } from '../../redux/selectors';
 
 import '@testing-library/jest-dom';
+
+afterEach(cleanup);
 
 jest.mock('react-redux', () => ({
   useSelector: (selector) => selector(),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 
 import SearchModal from '../SearchModal';
 import { closeSearchModal } from '../../redux/actions';
@@ -16,6 +16,8 @@ jest.mock('../SearchResult', () => () => <div data-testid="SearchResult-containe
 jest.mock('../../redux/actions', () => ({
   closeSearchModal: jest.fn(),
 }));
+
+afterEach(cleanup);
 
 describe('<SearchModal />', () => {
   it('should call dispatch with the return value from closeSearchModal as args when background layer is clicked', () => {

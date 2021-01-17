@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 
 import SearchInput from '../SearchInput';
 import { searchCard } from '../../apis/card';
@@ -22,6 +22,7 @@ jest.mock('../../utils/useDebounce', () => ({
   useDebounce: value => value,
 }));
 
+afterEach(cleanup);
 
 describe('<SearchInput />', () => {
   it('should contain text input', () => {
