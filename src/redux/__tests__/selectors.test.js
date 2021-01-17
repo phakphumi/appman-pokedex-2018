@@ -33,7 +33,7 @@ describe('selectors', () => {
   });
   
   describe('selectSearchResults', () => {
-    it('should return searchResults exactly same with the redux state', () => {
+    it('should return searchResults exactly same with the redux state if there is no card in deck', () => {
       const searchResults = [
         { id: 'a1' },
         { id: 'a2' },
@@ -47,5 +47,19 @@ describe('selectors', () => {
       expect(result[1].id).toEqual(searchResults[1].id);
       expect(result[2].id).toEqual(searchResults[2].id);
     });
+
+    it('should return searchResults excluded the card that exists in deck', () => {
+      const searchResults = [
+        { id: 'a1' },
+        { id: 'a2' },
+        { id: 'a3' },
+      ];
+
+      const result = selectSearchResults({ deck: [searchResults[1]], searchResults });
+
+      expect(result).toHaveLength(searchResults.length - 1);
+      expect(result[0].id).toEqual(searchResults[0].id);
+      expect(result[1].id).toEqual(searchResults[2].id);
+    })
   });
 });

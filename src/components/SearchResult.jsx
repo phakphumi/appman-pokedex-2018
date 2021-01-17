@@ -7,11 +7,11 @@ import { selectSearchResults } from '../redux/selectors';
 
 const Container = styled.div`
   flex-grow: 1;
-  padding: 10px;
+  margin: 10px;
   overflow-y: scroll;
 `;
 
-const SearchResult = () => {
+const SearchResult = React.memo(() => {
   const cards = useSelector(selectSearchResults);
 
   const SearchItems = cards?.map(card => <SearchItem key={card.id} card={card} />);
@@ -21,6 +21,6 @@ const SearchResult = () => {
       { SearchItems }
     </Container>
   );
-};
+});
 
 export default SearchResult;
