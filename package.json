@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.10.2",
     "cors": "^2.8.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
