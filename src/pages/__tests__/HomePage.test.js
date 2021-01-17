@@ -1,11 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 
 import HomePage from '../HomePage';
 import { selectShowSearchModal } from '../../redux/selectors';
 
 import '@testing-library/jest-dom';
 
+jest.mock('../../components/Deck', () => () => <div data-testid="Deck-container"/>);
+jest.mock('../../components/Header', () => () => <div data-testid="Header-container"/>);
 jest.mock('../../components/Footer', () => () => <div data-testid="Footer-container"/>);
 jest.mock('../../components/SearchModal', () => () => <div data-testid="SearchModal-container"/>);
 
@@ -16,7 +18,21 @@ jest.mock('../../redux/selectors', () => ({
   selectShowSearchModal: jest.fn(),
 }))
 
+afterEach(cleanup);
+
 describe('<HomePage />', () => {
+  it('should contain Deck Section', () => {
+    const { container, queryByTestId} = render(<HomePage />);
+
+    expect(queryByTestId('Deck-container')).toBeInTheDocument();
+  });
+
+  it('should contain Header Section', () => {
+    const { container, queryByTestId} = render(<HomePage />);
+
+    expect(queryByTestId('Header-container')).toBeInTheDocument();
+  });
+
   it('should contain Footer Section', () => {
     const { container, queryByTestId} = render(<HomePage />);
 
