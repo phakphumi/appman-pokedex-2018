@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import SearchItem from './SearchItem';
+import CardItem from './CardItem';
 import { selectSearchResults } from '../redux/selectors';
 
 const Container = styled.div`
@@ -14,7 +14,13 @@ const Container = styled.div`
 const SearchResult = React.memo(() => {
   const cards = useSelector(selectSearchResults);
 
-  const SearchItems = cards?.map(card => <SearchItem key={card.id} card={card} />);
+  const SearchItems = cards?.map(card => (
+    <CardItem
+      key={card.id}
+      card={card}
+      searchResult
+    />
+  ));
 
   return (
     <Container data-testid="SearchResult-container">

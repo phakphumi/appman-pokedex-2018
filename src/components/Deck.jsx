@@ -2,10 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components'
 
-import SearchItem from '../components/SearchItem';
+import CardItem from '../components/CardItem';
 import { selectDeck } from '../redux/selectors';
 
 const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   flex-grow: 1;
   padding: 0 10px 80px 10px;
   width: 100%;
@@ -16,11 +18,11 @@ const Container = styled.div`
 export const Deck = React.memo(() => {
   const deck = useSelector(selectDeck);
 
-  const Cards = deck?.map(card => <SearchItem key={card.id} card={card} />);
+  const CardItems = deck?.map(card => <CardItem key={card.id} card={card} />);
 
   return (
     <Container>
-      {Cards}
+      {CardItems}
     </Container>
   );
 });
