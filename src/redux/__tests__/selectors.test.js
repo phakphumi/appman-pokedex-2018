@@ -1,9 +1,27 @@
 import {
+  selectDeck,
   selectSearchResults,
   selectShowSearchModal,
 } from '../selectors';
 
 describe('selectors', () => {
+  describe('selectDeck', () => {
+    it('should return deck exactly same with the redux state', () => {
+      const deck = [
+        { id: 'a1' },
+        { id: 'a2' },
+        { id: 'a3' },
+      ];
+
+      const result = selectDeck({ deck });
+
+      expect(result).toHaveLength(deck.length);
+      expect(result[0].id).toEqual(deck[0].id);
+      expect(result[1].id).toEqual(deck[1].id);
+      expect(result[2].id).toEqual(deck[2].id);
+    });
+  })
+  
   describe('selectShowSearchModal', () => {
     it('should return showSearchModal as a plain value', () => {
       const showSearchModal = true;
